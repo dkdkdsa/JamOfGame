@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d15621ca6b7a3bf40abb3206c2e75766, type: 3}
   m_Name: PoolingData
   m_EditorClassIdentifier: 
-  poolingList: []
+  poolingList:
+  - poolName: Bullet
+    poolObj: {fileID: 2251290409917052910, guid: 0ffac936c3a7d0e44b2f4892941e5c65, type: 3}
+    poolSize: 100
