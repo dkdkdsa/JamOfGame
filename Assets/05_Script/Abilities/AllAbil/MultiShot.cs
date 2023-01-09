@@ -10,8 +10,8 @@ public class MultiShot : AbilityBase
 	}
 	protected override void Activity()
 	{
-		//GameManager.instance.player.shoot.shootNum += 4;
-		//GameManager.instance.player.shoot.angleJitter += 15;
+		GameManager.instance.player.shooter.shootNum += 4;
+		GameManager.instance.player.shooter.angleJitter += 15;
 	}
 	protected override bool Condition()
 	{

@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
 
     [field: SerializeField] public Transform enemyTarget;
+    public PlayerCtrl player;
 
     public static GameManager instance;
 
@@ -13,7 +14,7 @@ public class GameManager : MonoBehaviour
     {
         
         instance = this;
-
+        player = enemyTarget.GetComponent<PlayerCtrl>();
     }
 
 }

@@ -10,6 +10,6 @@ public class Stronger : AbilityBase
 	}
 	protected override void Activity()
 	{
-		//GameManager.instance.player.shooter.damage *= 1.15f;
+		GameManager.instance.player.shooter.damage *= 1.15f;
 	}
 }

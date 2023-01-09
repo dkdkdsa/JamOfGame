@@ -10,6 +10,6 @@ public class FastShot : AbilityBase
 	}
 	protected override void Activity()
 	{
-		//GameManager.instance.player.shooter.speed *= 1.3f;
+		GameManager.instance.player.shooter.speed *= 1.3f;
 	}
 }

@@ -30,12 +30,11 @@ public class Shoot : MonoBehaviour
 
 	Camera mainCam;
 	SpriteRenderer srend;
-	
+	Coroutine shootSeq;
 	private void Awake()
 	{
 		mainCam = Camera.main;
 		srend = GetComponent<SpriteRenderer>();
-		StartCoroutine(Shooter());
 		damage = baseDamage;
 		speed = baseSpeed;
 		scale = baseScale;
@@ -46,7 +45,7 @@ public class Shoot : MonoBehaviour
 		
 		if (Input.GetMouseButtonDown(0))
 		{
-			shootMode = ShootState.Continuous;
+			shootSeq = StartCoroutine(Shooter());
 			srend.enabled = true;
 		}
 		if (Input.GetMouseButton(0))
@@ -55,6 +54,8 @@ public class Shoot : MonoBehaviour
 		}
 		if(Input.GetMouseButtonUp(0))
 		{
+			StopCoroutine(shootSeq);
+			shootSeq = null;
 			shootMode = ShootState.None;
 			srend.enabled = false;
 		}
@@ -70,22 +71,28 @@ public class Shoot : MonoBehaviour
 	{
 		while (true)
 		{
-			yield return null;
-			if (shootMode == ShootState.Continuous)
-			{
-				yield return new WaitForSeconds(shootGap);
-				for (int i = 0; i < shootNum; i++)
-				{
-					FireBullet();
-				}
-				
-			}
+			yield return new WaitForSeconds(shootGap);
+			FireBullet();
 		}
 	}
 	public GameObject FireBullet()
 	{
-		BulletFly bullet = FAED.Pop("Bullet", shootPos.position, Quaternion.Euler(transform.eulerAngles + new Vector3(0,0,Random.Range(-angleJitter, angleJitter)))).GetComponent<BulletFly>();
-		bullet.ShootStart(speed, damage, scale);
+		BulletFly bullet = null;
+		if (shootNum > 1)
+		{
+			for (int i = 0; i < shootNum; i++)
+			{
+				bullet = FAED.Pop("PlayerBullet", shootPos.position, Quaternion.Euler(transform.eulerAngles + new Vector3(0, 0, Random.Range(-angleJitter, angleJitter)))).GetComponent<BulletFly>();
+				bullet.ShootStart(speed - Random.Range(0f, 5f), damage, scale);
+			}
+
+		}
+		else
+		{
+			bullet = FAED.Pop("PlayerBullet", shootPos.position, transform.rotation).GetComponent<BulletFly>();
+			bullet.ShootStart(speed, damage, scale);
+		}
+		
 		OnShoot?.Invoke();
 		return bullet.gameObject;
 	}

@@ -9,7 +9,7 @@ public class BulletFly : MonoBehaviour
 	Vector3 initSize;
 	Rigidbody2D rig;
 	private void Awake()
-	{
+	{ 
 		initSize = transform.localScale;
 		rig = GetComponent<Rigidbody2D>();
 	}

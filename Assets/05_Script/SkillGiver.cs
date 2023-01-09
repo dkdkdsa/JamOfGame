@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class SkillGiver : MonoBehaviour
 {
+	[SerializeField]
 	AbilityBase skill;
-    public void SkillGet(AbilityBase skill)
+	private void Awake()
+	{
+		skill = GetComponent<AbilityBase>();
+	}
+	public void SkillGet()
 	{
 		skill.LearnSkill();
 	}

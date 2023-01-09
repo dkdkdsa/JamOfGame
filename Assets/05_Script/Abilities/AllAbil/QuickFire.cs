@@ -10,6 +10,6 @@ public class QuickFire : AbilityBase
 	}
 	protected override void Activity()
 	{
-		//GameManager.instance.player.shootGap *= 0.5f;
+		GameManager.instance.player.shooter.shootGap *= 0.5f;
 	}
 }

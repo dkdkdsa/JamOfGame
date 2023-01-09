@@ -10,7 +10,7 @@ public class FireJump : AbilityBase
 	}
 	protected override void Activity()
 	{
-		//GameManager.instance.player.shoot.FireBullet();
+		GameManager.instance.player.shooter.FireBullet();
 	}
 	protected override bool Condition()
 	{

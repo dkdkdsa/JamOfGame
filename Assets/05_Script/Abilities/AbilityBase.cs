@@ -9,21 +9,20 @@ public class AbilityBase : MonoBehaviour
 	{
 		Init();
 	}
-	public virtual void LearnSkill<T>() where T : AbilityBase
+	public virtual void LearnSkill()
 	{
-		//T skill = GameManager.instance.player.gameObject.AddComponent<T>();
-		//if(form == Skillform.WhenJump)
-		//{
-		//	GameManager.instance.player.OnJump.AddListener(skill.UseSkill);
-		//}
-		//if(form == Skillform.WhenShoot)
-		//{
-		//	GameManager.instance.player.shooter.OnShoot.AddListener(skill.UseSkill);
-		//}
-		//if(form == Skillform.Continuous)
-		//{
-		//	skill.Activity();
-		//}
+		if (form == Skillform.WhenJump)
+		{
+			GameManager.instance.player.OnJump.AddListener(UseSkill);
+		}
+		if (form == Skillform.WhenShoot)
+		{
+			GameManager.instance.player.shooter.OnShoot.AddListener(UseSkill);
+		}
+		if (form == Skillform.Continuous)
+		{
+			Activity();
+		}
 	}
 	protected virtual void Init()
 	{
