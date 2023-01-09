@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed5fe4f65728d9046b5d48fc7a22a33e, type: 3}
   m_Name: SettingData
   m_EditorClassIdentifier: 
-  poolData: {fileID: 11400000, guid: d42073d4450f26c458cb44cfbfc985d0, type: 2}
+  poolData: {fileID: 11400000, guid: 87c0204b14ff60245a5eb472cd88d698, type: 2}
   soundList: {fileID: 11400000, guid: 66cfe3f4ff14b7e4e840c532c1ea68c0, type: 2}
