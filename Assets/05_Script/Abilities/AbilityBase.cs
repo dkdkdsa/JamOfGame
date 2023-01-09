@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[RequireComponent(typeof(SkillGiver))]
 public class AbilityBase : MonoBehaviour
 {
 	protected Skillform form;

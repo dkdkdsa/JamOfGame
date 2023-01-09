@@ -12,6 +12,7 @@ public class MultiShot : AbilityBase
 	{
 		GameManager.instance.player.shooter.shootNum += 4;
 		GameManager.instance.player.shooter.angleJitter += 15;
+		GameManager.instance.player.shooter.angleJitter = Mathf.Clamp(GameManager.instance.player.shooter.angleJitter, 0, 45);
 	}
 	protected override bool Condition()
 	{

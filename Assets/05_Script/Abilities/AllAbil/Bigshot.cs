@@ -10,6 +10,6 @@ public class Bigshot : AbilityBase
 	}
 	protected override void Activity()
 	{
-		GameManager.instance.player.shooter.scale *= 1.5f;
+		GameManager.instance.player.shooter.scale *= 1.15f;
 	}
 }

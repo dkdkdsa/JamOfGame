@@ -15,7 +15,7 @@ MonoBehaviour:
   poolingList:
   - poolName: PlayerBullet
     poolObj: {fileID: 2251290409917052910, guid: 0ffac936c3a7d0e44b2f4892941e5c65, type: 3}
-    poolSize: 30
+    poolSize: 400
   - poolName: Bullet
     poolObj: {fileID: 2875821499076581156, guid: 288bd31f6d6199445bd39498bb05a594, type: 3}
-    poolSize: 100
+    poolSize: 800

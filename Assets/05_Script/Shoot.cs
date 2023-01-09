@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 using FD.Dev;
+using UnityEngine.EventSystems;
+
 public class Shoot : MonoBehaviour
 {
 	[SerializeField]
@@ -28,9 +31,14 @@ public class Shoot : MonoBehaviour
 	public float ShootGap { get => shootGap; set => shootGap = value;}
 	public UnityEvent OnShoot;
 
+	public RectTransform jumpButton;
+
 	Camera mainCam;
 	SpriteRenderer srend;
 	Coroutine shootSeq;
+	Coroutine c;
+
+	List<BulletFly> tester = new List<BulletFly>();
 	private void Awake()
 	{
 		mainCam = Camera.main;
@@ -45,19 +53,16 @@ public class Shoot : MonoBehaviour
 		
 		if (Input.GetMouseButtonDown(0))
 		{
-			shootSeq = StartCoroutine(Shooter());
-			srend.enabled = true;
-		}
-		if (Input.GetMouseButton(0))
-		{
-			transform.right = CalcDir();
+			if (!EventSystem.current.IsPointerOverGameObject(0))
+			{
+				shootSeq = StartCoroutine(Shooter());
+			}
 		}
 		if(Input.GetMouseButtonUp(0))
 		{
 			StopCoroutine(shootSeq);
 			shootSeq = null;
 			shootMode = ShootState.None;
-			srend.enabled = false;
 		}
 	}
 
@@ -75,15 +80,26 @@ public class Shoot : MonoBehaviour
 			FireBullet();
 		}
 	}
+	IEnumerator DelayOnOff()
+	{
+		srend.enabled = true;
+		yield return new WaitForSeconds(shootGap * 0.75f);
+		srend.enabled = false;
+	}
 	public GameObject FireBullet()
 	{
+		if(c != null)
+			StopCoroutine(c);
+		c = StartCoroutine(DelayOnOff());
+		transform.right = CalcDir();
 		BulletFly bullet = null;
 		if (shootNum > 1)
 		{
 			for (int i = 0; i < shootNum; i++)
 			{
 				bullet = FAED.Pop("PlayerBullet", shootPos.position, Quaternion.Euler(transform.eulerAngles + new Vector3(0, 0, Random.Range(-angleJitter, angleJitter)))).GetComponent<BulletFly>();
-				bullet.ShootStart(speed - Random.Range(0f, 5f), damage, scale);
+				tester.Add(bullet);
+				bullet.ShootStart(speed, damage, scale);
 			}
 
 		}
