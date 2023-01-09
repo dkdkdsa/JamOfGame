@@ -6,11 +6,23 @@ using FD.Dev;
 public class Shoot : MonoBehaviour
 {
 	[SerializeField]
-    private float shootGap;
+    internal float shootGap;
 	[SerializeField]
 	private Transform shootPos;
 	[SerializeField]
-	private int shootNum = 4;
+	internal int shootNum = 4;
+	[SerializeField]
+	internal float baseDamage = 10;
+	[SerializeField]
+	internal float baseSpeed = 12;
+	[SerializeField]
+	internal float baseScale = 1;
+	[SerializeField]
+	internal float angleJitter = 0;
+
+	internal float damage;
+	internal float speed;
+	internal float scale;
 
 	ShootState shootMode;
 	public float ShootGap { get => shootGap; set => shootGap = value;}
@@ -24,6 +36,9 @@ public class Shoot : MonoBehaviour
 		mainCam = Camera.main;
 		srend = GetComponent<SpriteRenderer>();
 		StartCoroutine(Shooter());
+		damage = baseDamage;
+		speed = baseSpeed;
+		scale = baseScale;
 	}
 
 	private void Update()
@@ -59,9 +74,19 @@ public class Shoot : MonoBehaviour
 			if (shootMode == ShootState.Continuous)
 			{
 				yield return new WaitForSeconds(shootGap);
-				FAED.Pop("Bullet", shootPos.position, transform.rotation);
-				OnShoot?.Invoke();
+				for (int i = 0; i < shootNum; i++)
+				{
+					FireBullet();
+				}
+				
 			}
 		}
+	}
+	public GameObject FireBullet()
+	{
+		BulletFly bullet = FAED.Pop("Bullet", shootPos.position, Quaternion.Euler(transform.eulerAngles + new Vector3(0,0,Random.Range(-angleJitter, angleJitter)))).GetComponent<BulletFly>();
+		bullet.ShootStart(speed, damage, scale);
+		OnShoot?.Invoke();
+		return bullet.gameObject;
 	}
 }

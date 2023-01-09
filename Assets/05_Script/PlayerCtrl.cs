@@ -14,6 +14,7 @@ public class PlayerCtrl : MonoBehaviour
 	private int jumpCount = 2;
 	public LayerMask ignoreLayer;
 	public UnityEvent OnJump;
+	internal Shoot shooter;
 	Rigidbody2D rig;
 	int curJumpCount;
 	bool isGrounded = true;
@@ -24,6 +25,7 @@ public class PlayerCtrl : MonoBehaviour
 		curJumpCount = jumpCount;
 		prevGrounded = isGrounded;
 		ignoreLayer = ~ignoreLayer;
+		shooter = GetComponentInChildren<Shoot>();
 	}
 	private void Update()
 	{
