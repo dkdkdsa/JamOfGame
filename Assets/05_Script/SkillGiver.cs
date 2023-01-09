@@ -7,6 +7,6 @@ public class SkillGiver : MonoBehaviour
 	AbilityBase skill;
     public void SkillGet(AbilityBase skill)
 	{
-		skill.LearnSkill();
+		//skill.LearnSkill();
 	}
 }

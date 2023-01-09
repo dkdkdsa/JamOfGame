@@ -29,9 +29,9 @@ public class DeadEye : AbilityBase
 		//	GameManager.instance.player.scale /= 2;
 		//}
 	}
-	public override void LearnSkill()
+	public override void LearnSkill<T>()
 	{
-		base.LearnSkill();
+		base.LearnSkill<T>();
 		//GameManager.instance.player.shooter.OnShoot.AddListener(()=>{ ++shootCount;});
 		//GameManager.instance.player.shooter.OnShoot.AddListener(()=>{ Reset});
 	}
