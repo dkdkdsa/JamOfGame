@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 using FD.Dev;
+using UnityEngine.EventSystems;
+
 public class Shoot : MonoBehaviour
 {
 	[SerializeField]
@@ -28,14 +31,18 @@ public class Shoot : MonoBehaviour
 	public float ShootGap { get => shootGap; set => shootGap = value;}
 	public UnityEvent OnShoot;
 
+	public RectTransform jumpButton;
+
 	Camera mainCam;
 	SpriteRenderer srend;
-	
+	Coroutine shootSeq;
+	Coroutine c;
+
+	List<BulletFly> tester = new List<BulletFly>();
 	private void Awake()
 	{
 		mainCam = Camera.main;
 		srend = GetComponent<SpriteRenderer>();
-		StartCoroutine(Shooter());
 		damage = baseDamage;
 		speed = baseSpeed;
 		scale = baseScale;
@@ -46,17 +53,16 @@ public class Shoot : MonoBehaviour
 		
 		if (Input.GetMouseButtonDown(0))
 		{
-			shootMode = ShootState.Continuous;
-			srend.enabled = true;
-		}
-		if (Input.GetMouseButton(0))
-		{
-			transform.right = CalcDir();
+			if (!EventSystem.current.IsPointerOverGameObject(0))
+			{
+				shootSeq = StartCoroutine(Shooter());
+			}
 		}
 		if(Input.GetMouseButtonUp(0))
 		{
+			StopCoroutine(shootSeq);
+			shootSeq = null;
 			shootMode = ShootState.None;
-			srend.enabled = false;
 		}
 	}
 
@@ -70,22 +76,39 @@ public class Shoot : MonoBehaviour
 	{
 		while (true)
 		{
-			yield return null;
-			if (shootMode == ShootState.Continuous)
-			{
-				yield return new WaitForSeconds(shootGap);
-				for (int i = 0; i < shootNum; i++)
-				{
-					FireBullet();
-				}
-				
-			}
+			yield return new WaitForSeconds(shootGap);
+			FireBullet();
 		}
+	}
+	IEnumerator DelayOnOff()
+	{
+		srend.enabled = true;
+		yield return new WaitForSeconds(shootGap * 0.75f);
+		srend.enabled = false;
 	}
 	public GameObject FireBullet()
 	{
-		BulletFly bullet = FAED.Pop("Bullet", shootPos.position, Quaternion.Euler(transform.eulerAngles + new Vector3(0,0,Random.Range(-angleJitter, angleJitter)))).GetComponent<BulletFly>();
-		bullet.ShootStart(speed, damage, scale);
+		if(c != null)
+			StopCoroutine(c);
+		c = StartCoroutine(DelayOnOff());
+		transform.right = CalcDir();
+		BulletFly bullet = null;
+		if (shootNum > 1)
+		{
+			for (int i = 0; i < shootNum; i++)
+			{
+				bullet = FAED.Pop("PlayerBullet", shootPos.position, Quaternion.Euler(transform.eulerAngles + new Vector3(0, 0, Random.Range(-angleJitter, angleJitter)))).GetComponent<BulletFly>();
+				tester.Add(bullet);
+				bullet.ShootStart(speed, damage, scale);
+			}
+
+		}
+		else
+		{
+			bullet = FAED.Pop("PlayerBullet", shootPos.position, transform.rotation).GetComponent<BulletFly>();
+			bullet.ShootStart(speed, damage, scale);
+		}
+		
 		OnShoot?.Invoke();
 		return bullet.gameObject;
 	}

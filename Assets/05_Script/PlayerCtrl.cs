@@ -19,6 +19,8 @@ public class PlayerCtrl : MonoBehaviour
 	int curJumpCount;
 	bool isGrounded = true;
 	bool prevGrounded;
+
+	
 	private void Awake()
 	{
 		rig = GetComponent<Rigidbody2D>();
