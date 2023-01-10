@@ -102,6 +102,9 @@ MonoBehaviour:
   baseDamage: 10
   baseSpeed: 15
   baseScale: 1
+  maxDamage: 1000
+  maxSpeed: 150
+  maxScale: 12
   angleJitter: 0
   OnShoot:
     m_PersistentCalls:
@@ -153,7 +156,7 @@ GameObject:
   - component: {fileID: 7535184224147545578}
   m_Layer: 10
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -306,6 +309,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHp: 100
   OnDamaged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHeal:
     m_PersistentCalls:
       m_Calls: []
   OnDead:

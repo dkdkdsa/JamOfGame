@@ -14,13 +14,6 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Transform basePos;
     [SerializeField] private DoEventRoot waringEvent;
 
-    private void Start()
-    {
-        
-        SummonStart();
-
-    }
-
     public void SummonStart()
     {
 
