@@ -16,3 +16,60 @@ MonoBehaviour:
   - poolName: EnemyBullet
     poolObj: {fileID: 2875821499076581156, guid: 288bd31f6d6199445bd39498bb05a594, type: 3}
     poolSize: 30
+  - poolName: Bat
+    poolObj: {fileID: 3108449108867579343, guid: 4e9679fc75b225c40a3ac94af5376193, type: 3}
+    poolSize: 30
+  - poolName: Rat
+    poolObj: {fileID: 6319001424866930414, guid: a03877db2b12ac04b958b05df496c462, type: 3}
+    poolSize: 30
+  - poolName: Crab
+    poolObj: {fileID: 9146020251200285070, guid: d8e5187435e42424baac89568ef94ec9, type: 3}
+    poolSize: 30
+  - poolName: Slime
+    poolObj: {fileID: 4653420029260228828, guid: 42aa9405e31e15d4db7991a8ad64db06, type: 3}
+    poolSize: 30
+  - poolName: Skull
+    poolObj: {fileID: 7184080313178548421, guid: ee91a9f6729a10a48a3f0a34b3b6f8e7, type: 3}
+    poolSize: 30
+  - poolName: GolHead
+    poolObj: {fileID: 1411188976051748145, guid: f78095866c556ef49996399395fe5bbe, type: 3}
+    poolSize: 30
+  - poolName: SuReGum
+    poolObj: {fileID: 6469913912057376230, guid: ed5643ef7e60f55438ad7d5ee34bea8f, type: 3}
+    poolSize: 30
+  - poolName: KingBoss
+    poolObj: {fileID: 8433969416240291686, guid: 5f6c941d0b97fcf47bc5a44b8e3573db, type: 3}
+    poolSize: 2
+  - poolName: NingaBoss
+    poolObj: {fileID: 2356838829836756911, guid: 20116019fc50f32459d2b946d491e98f, type: 3}
+    poolSize: 2
+  - poolName: MonsterBoss
+    poolObj: {fileID: 4426133991118040114, guid: 7e27d68fd250b0049b1bf1a320df9c35, type: 3}
+    poolSize: 2
+  - poolName: Rock1
+    poolObj: {fileID: 1485955279212470804, guid: af777538f62b5724586d8a65067d0e8f, type: 3}
+    poolSize: 10
+  - poolName: Rock2
+    poolObj: {fileID: 3967395239590146261, guid: b49425cd045cc804c891264b93d6a30c, type: 3}
+    poolSize: 10
+  - poolName: Rock3
+    poolObj: {fileID: 6116650621780694826, guid: 032fbf031d4a43f43ac85231a9ba1db6, type: 3}
+    poolSize: 10
+  - poolName: Tree1
+    poolObj: {fileID: 5655863981100283548, guid: 32711e0f6c30c734699c637d6ae0e2e8, type: 3}
+    poolSize: 10
+  - poolName: Tree2
+    poolObj: {fileID: 7767575557215763531, guid: d12c5407289270b47a98bcecefb8775a, type: 3}
+    poolSize: 10
+  - poolName: Tree3
+    poolObj: {fileID: 7611665414123614066, guid: ffe446d58e170004cb26c290745f1ae8, type: 3}
+    poolSize: 10
+  - poolName: Tree4
+    poolObj: {fileID: 1511693677198534153, guid: 4c179387c2abd444ba08d3bc9655cd47, type: 3}
+    poolSize: 10
+  - poolName: Tree5
+    poolObj: {fileID: 6344188117449141088, guid: 81325a556b1e0094d9b86900574cbfe2, type: 3}
+    poolSize: 10
+  - poolName: Tree6
+    poolObj: {fileID: 467218940936389642, guid: 1943ac7570959804aaba67e7aca011e5, type: 3}
+    poolSize: 10
