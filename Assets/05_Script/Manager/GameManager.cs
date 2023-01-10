@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
 
     [field: SerializeField] public Transform enemyTarget;
+
+    public WaveManager waveManager;
     public PlayerCtrl player;
 
     public static GameManager instance;
@@ -15,6 +17,8 @@ public class GameManager : MonoBehaviour
         
         instance = this;
         player = enemyTarget.GetComponent<PlayerCtrl>();
+        waveManager = FindObjectOfType<WaveManager>();
+
     }
 
 }

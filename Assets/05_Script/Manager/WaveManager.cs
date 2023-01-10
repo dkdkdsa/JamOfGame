@@ -5,6 +5,8 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
 
+    [SerializeField] private DoWaringEvent clearEvent;
+
     private EnemySpawner spawner;
     private MapObjectSummon mapSummoner;
 
@@ -35,7 +37,13 @@ public class WaveManager : MonoBehaviour
     public void ClearWave()
     {
 
-        //클리어 UI
+        clearEvent.Play(() =>
+        {
+
+            //여기에 상점
+
+        });
+
         mapSummoner.StopSpawn();
 
     }
@@ -43,7 +51,7 @@ public class WaveManager : MonoBehaviour
     IEnumerator WaveCo()
     {
 
-        yield return new WaitForSecondsRealtime(3);
+        yield return new WaitForSecondsRealtime(3f);
 
         spawner.BossSummon();
 
