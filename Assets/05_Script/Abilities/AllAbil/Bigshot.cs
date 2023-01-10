@@ -6,7 +6,9 @@ public class Bigshot : AbilityBase
 {
 	protected override void Init()
 	{
+		base.Init();
 		form = Skillform.Continuous;
+		
 	}
 	protected override void Activity()
 	{

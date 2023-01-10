@@ -8,6 +8,7 @@ public class FireJump : AbilityBase
 	Vector2 minMaxDel;
 	protected override void Init()
 	{
+		base.Init();
 		form = Skillform.WhenJump;
 	}
 	protected override void Activity()

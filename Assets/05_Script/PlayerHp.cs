@@ -7,30 +7,31 @@ public class PlayerHp : MonoBehaviour
 {
     [SerializeField]
     internal int MaxHp;
-    int prevHp;
     int currentHp;
 	public UnityEvent<int> OnDamaged;
+	public UnityEvent<int> OnHeal;
 	public UnityEvent OnDead;
 
 	private void Awake()
 	{
 		currentHp = MaxHp;
-		prevHp = currentHp;
 	}
-	private void Update()
+	public void HealDamage(int am)
 	{
-		if(prevHp != currentHp)
+		currentHp += am;
+		if(currentHp > MaxHp)
 		{
-			prevHp = currentHp;
-			OnDamaged.Invoke(currentHp);
-			if(currentHp <= 0)
-			{
-				OnDead.Invoke();
-			}
+			currentHp = MaxHp;
 		}
+		OnHeal.Invoke(currentHp);
 	}
 	public void GetDamage(int dam)
 	{
 		currentHp -= dam;
+		OnDamaged.Invoke(currentHp);
+		if (currentHp <= 0)
+		{
+			OnDead.Invoke();
+		}
 	}
 }

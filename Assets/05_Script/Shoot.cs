@@ -21,6 +21,12 @@ public class Shoot : MonoBehaviour
 	[SerializeField]
 	internal float baseScale = 1;
 	[SerializeField]
+	internal float maxDamage = 1000;
+	[SerializeField]
+	internal float maxSpeed = 150;
+	[SerializeField]
+	internal float maxScale = 12;
+	[SerializeField]
 	internal float angleJitter = 0;
 
 	internal float damage;
@@ -50,7 +56,9 @@ public class Shoot : MonoBehaviour
 
 	private void Update()
 	{
-		
+		damage = Mathf.Clamp(damage, baseDamage, maxDamage);
+		scale = Mathf.Clamp(scale, baseScale, maxScale);
+		speed = Mathf.Clamp(speed, baseSpeed, maxSpeed);
 		if (Input.GetMouseButtonDown(0))
 		{
 			if (!EventSystem.current.IsPointerOverGameObject(0))

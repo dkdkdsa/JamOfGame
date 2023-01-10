@@ -6,13 +6,18 @@ public class DeadEye : AbilityBase
 {
 	private int shootCount = 0;
 	private bool isFirst = true;
+	Vector3 prevData = new Vector3();
 	protected override void Init()
 	{
+		base.Init();
 		form = Skillform.WhenShoot;
 		shootCount = 0;
 	}
 	protected override void Activity()
 	{
+		prevData.x = GameManager.instance.player.shooter.speed;
+		prevData.y = GameManager.instance.player.shooter.damage;
+		prevData.z = GameManager.instance.player.shooter.scale;
 		GameManager.instance.player.shooter.speed *= 2;
 		GameManager.instance.player.shooter.damage *= 2;
 		GameManager.instance.player.shooter.scale *= 2;
@@ -25,9 +30,9 @@ public class DeadEye : AbilityBase
 	{
 		if (shootCount % 4 == 3)
 		{
-			GameManager.instance.player.shooter.speed /= 2;
-			GameManager.instance.player.shooter.damage /= 2;
-			GameManager.instance.player.shooter.scale /= 2;
+			GameManager.instance.player.shooter.speed = prevData.x;
+			GameManager.instance.player.shooter.damage = prevData.y;
+			GameManager.instance.player.shooter.scale = prevData.z;
 		}
 	}
 	public override void LearnSkill()

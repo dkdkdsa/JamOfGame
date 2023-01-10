@@ -4,6 +4,17 @@ using UnityEngine;
 [RequireComponent(typeof(SkillGiver))]
 public class AbilityBase : MonoBehaviour
 {
+	[SerializeField]
+	Skills mySkill;
+	[SerializeField]
+	private string skillName;
+	[SerializeField]
+	private string skillDesc;
+	[SerializeField]
+	private int skillPrice;
+	[SerializeField]
+	private Sprite skillIcon;
+	public AbilData data;
 	protected Skillform form;
 	private void Awake()
 	{
@@ -26,7 +37,7 @@ public class AbilityBase : MonoBehaviour
 	}
 	protected virtual void Init()
 	{
-
+		data = new AbilData(skillName, skillDesc, skillPrice, skillIcon);
 	}
 	public void UseSkill()
 	{
@@ -42,5 +53,14 @@ public class AbilityBase : MonoBehaviour
     protected virtual void Activity()
 	{
 		
+	}
+
+	public static bool operator ==(AbilityBase a, AbilityBase b)
+	{
+		return a.mySkill == b.mySkill;
+	}
+	public static bool operator !=(AbilityBase a, AbilityBase b)
+	{
+		return a.mySkill != b.mySkill;
 	}
 }
