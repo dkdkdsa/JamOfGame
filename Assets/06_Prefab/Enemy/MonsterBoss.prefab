@@ -169,6 +169,7 @@ MonoBehaviour:
   attackDelTime: 0.5
   speed: 0
   maxHp: 50
+  isBoss: 1
   summonPos: {fileID: 4426133991840836858}
 --- !u!114 &4426133991118040125
 MonoBehaviour:

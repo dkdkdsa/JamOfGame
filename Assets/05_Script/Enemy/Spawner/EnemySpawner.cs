@@ -12,6 +12,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private List<string> skyEnemyList = new List<string>();
     [SerializeField] private List<BossSummonList> bossList = new List<BossSummonList>();
     [SerializeField] private Transform basePos;
+    [SerializeField] private DoEventRoot waringEvent;
 
     private void Start()
     {
@@ -30,16 +31,17 @@ public class EnemySpawner : MonoBehaviour
 
     public void BossSummon()
     {
-
-        //보스 소환 경고
-
         StopAllCoroutines();
-
         FindObjectsOfType<EnemyRoot>().ToList().ForEach(x => FAED.Push(x.gameObject));
+        FindObjectsOfType<EnemyBullet>().ToList().ForEach(x => FAED.Push(x.gameObject));
 
-        var summoningBoss = FAED.Random(bossList);
+        waringEvent.Play(() =>
+        {
 
-        FAED.Pop(summoningBoss.bossKey, summoningBoss.summonPos.position, Quaternion.identity);
+            var summoningBoss = FAED.Random(bossList);
+            FAED.Pop(summoningBoss.bossKey, summoningBoss.summonPos.position, Quaternion.identity);
+
+        });
 
     }
 

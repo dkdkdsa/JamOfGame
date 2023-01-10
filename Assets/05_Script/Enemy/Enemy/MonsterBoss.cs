@@ -34,7 +34,7 @@ public class MonsterBoss : EnemyRoot
             for(int i = 0; i < 8; i++)
             {
 
-                FAED.Pop("Bat", new Vector2(Random.Range(-3f, 3f), Random.Range(-3f, 3f)) + (Vector2)summonPos.position, Quaternion.identity);
+                FAED.Pop("Bat", new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)) + (Vector2)summonPos.position, Quaternion.identity);
 
             }
 

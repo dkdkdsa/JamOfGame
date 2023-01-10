@@ -5,6 +5,7 @@ using UnityEngine;
 using FD.AI;
 using System;
 using UnityEditor.SearchService;
+using System.Linq;
 
 namespace Classs
 {
@@ -22,6 +23,7 @@ namespace Classs
         [SerializeField] protected float attackDelTime; 
         [SerializeField] protected float speed;
         [SerializeField] protected float maxHp = 50;
+        [SerializeField] protected bool isBoss = false; 
 
         protected bool attackCoolDown;
         protected bool isAttack;
@@ -67,6 +69,15 @@ namespace Classs
         {
 
             FAED.Push(gameObject);
+            if (isBoss)
+            {
+
+                GameManager.instance.waveManager.ClearWave();
+                FindObjectsOfType<EnemyRoot>().ToList().ForEach(x => FAED.Push(x.gameObject));
+                FindObjectsOfType<EnemyBullet>().ToList().ForEach(x => FAED.Push(x.gameObject));
+                FindObjectsOfType<SuReGum>().ToList().ForEach(x => FAED.Push(x.gameObject));
+
+            }
 
         }
         public void TakeDamage(float damage)
