@@ -37,3 +37,12 @@ MonoBehaviour:
   - poolName: SuReGum
     poolObj: {fileID: 6469913912057376230, guid: ed5643ef7e60f55438ad7d5ee34bea8f, type: 3}
     poolSize: 30
+  - poolName: KingBoss
+    poolObj: {fileID: 8433969416240291686, guid: 5f6c941d0b97fcf47bc5a44b8e3573db, type: 3}
+    poolSize: 2
+  - poolName: NingaBoss
+    poolObj: {fileID: 2356838829836756911, guid: 20116019fc50f32459d2b946d491e98f, type: 3}
+    poolSize: 2
+  - poolName: MonsterBoss
+    poolObj: {fileID: 4426133991118040114, guid: 7e27d68fd250b0049b1bf1a320df9c35, type: 3}
+    poolSize: 2
