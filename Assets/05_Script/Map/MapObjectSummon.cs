@@ -37,7 +37,7 @@ public class MapObjectSummon : MonoBehaviour
         while (true)
         {
 
-            yield return new WaitForSeconds(Random.Range(1f, 5f));
+            yield return new WaitForSeconds(Random.Range(3f, 15f));
 
             FAED.Pop(FAED.Random(mapObjList), summonTargetPos.position, Quaternion.identity);
 
@@ -59,4 +59,10 @@ public class MapObjectSummon : MonoBehaviour
 
     }
 
+    public void StopSpawn()
+    {
+
+        StopAllCoroutines();
+
+    }
 }
