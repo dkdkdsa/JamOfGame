@@ -120,4 +120,13 @@ public class Shoot : MonoBehaviour
 		OnShoot?.Invoke();
 		return bullet.gameObject;
 	}
+	public void DelayShoot(float del)
+	{
+		StartCoroutine(DelShoot(del));
+	}
+	IEnumerator DelShoot(float del)
+	{
+		yield return new WaitForSeconds(del);
+		FireBullet();
+	}
 }

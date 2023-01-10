@@ -13,12 +13,7 @@ public class FireJump : AbilityBase
 	}
 	protected override void Activity()
 	{
-		StartCoroutine(Fire());
-	}
-	IEnumerator Fire()
-	{
-		yield return new WaitForSeconds(Random.Range(minMaxDel.x, minMaxDel.y));
-		GameManager.instance.player.shooter.FireBullet();
+		GameManager.instance.player.shooter.DelayShoot(Random.Range(minMaxDel.x, minMaxDel.y));
 	}
 	protected override bool Condition()
 	{
