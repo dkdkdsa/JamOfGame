@@ -45,7 +45,7 @@ public class KingBoss : EnemyRoot
             FAED.InvokeDelay(() =>
             {
 
-                for(int i = 0; i < 3; i++)
+                for(int i = 0; i < 2; i++)
                 {
 
                     FAED.Pop("Bat", new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)) + (Vector2)summonPos.position, Quaternion.identity);
@@ -57,7 +57,7 @@ public class KingBoss : EnemyRoot
             FAED.InvokeDelay(() =>
             {
 
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < 2; i++)
                 {
 
                     FAED.Pop("Bat", new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)) + (Vector2)summonPos.position, Quaternion.identity);

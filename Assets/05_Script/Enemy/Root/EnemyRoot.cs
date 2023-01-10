@@ -23,8 +23,9 @@ namespace Classs
         [SerializeField] protected float attackDelTime; 
         [SerializeField] protected float speed;
         [SerializeField] protected float maxHp = 50;
-        [SerializeField] protected bool isBoss = false; 
+        [SerializeField] protected bool isBoss = false;
 
+        protected bool isDie;
         protected bool attackCoolDown;
         protected bool isAttack;
         protected FAED_AI aiCore;
@@ -83,10 +84,13 @@ namespace Classs
         public void TakeDamage(float damage)
         {
 
+            if (isDie) return;
+
             HP -= damage;
             if(HP <= 0)
             {
 
+                isDie = true;
                 ChangeAIState("Die");
                 DieAnimeShow();
 
@@ -136,8 +140,23 @@ namespace Classs
         protected virtual void OnEnable()
         {
 
-            HP = maxHp;
+            isDie = false;
+            if(GameManager.instance == null) return;
+            HP = maxHp + (Mathf.Pow(GameManager.instance.waveManager.clearCount, GameManager.instance.waveManager.clearCount) * 10);
             ChangeChaseState();
+
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+
+            if (collision.transform.CompareTag("Player"))
+            {
+
+                GameManager.instance.player.hp.GetDamage(10);
+                FAED.Push(gameObject);
+
+            }
 
         }
 

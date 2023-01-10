@@ -10,6 +10,8 @@ public class WaveManager : MonoBehaviour
     private EnemySpawner spawner;
     private MapObjectSummon mapSummoner;
 
+    public int clearCount = 1;
+
     private void Awake()
     {
         
@@ -23,13 +25,13 @@ public class WaveManager : MonoBehaviour
 
         //이쪽에 튜토리얼
 
-        WaveManaging();
-
     }
 
-    private void WaveManaging()
+    public void WaveManaging()
     {
 
+        FindObjectOfType<EnemySpawner>().SummonStart();
+        FindObjectOfType<MapObjectSummon>().StartMapObjSummon();
         StartCoroutine(WaveCo());
 
     }
@@ -40,7 +42,8 @@ public class WaveManager : MonoBehaviour
         clearEvent.Play(() =>
         {
 
-            //여기에 상점
+            GameManager.instance.shop.gameObject.SetActive(true);
+            GameManager.instance.shop.OpenShop();
 
         });
 
@@ -51,7 +54,7 @@ public class WaveManager : MonoBehaviour
     IEnumerator WaveCo()
     {
 
-        yield return new WaitForSecondsRealtime(3f);
+        yield return new WaitForSeconds(100f);
 
         spawner.BossSummon();
 

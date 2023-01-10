@@ -10,13 +10,6 @@ public class MapObjectSummon : MonoBehaviour
     [SerializeField] private List<string> mapDigainObj = new List<string>();
     [SerializeField] private Transform summonTargetPos;
 
-    private void Start()
-    {
-
-        StartMapObjSummon();
-
-    }
-
     public void StartMapObjSummon()
     {
 
