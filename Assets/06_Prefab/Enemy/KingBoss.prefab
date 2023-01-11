@@ -5080,5 +5080,5 @@ MonoBehaviour:
   maxHp: 500
   isBoss: 1
   isFly: 0
-  money: 10000
+  money: 4000
   summonPos: {fileID: 8433969415867714661}
