@@ -100,6 +100,15 @@ public class Shoot : MonoBehaviour
 			StopCoroutine(c);
 		c = StartCoroutine(DelayOnOff());
 		transform.right = CalcDir();
+		Debug.Log(transform.localEulerAngles.z);
+		if(transform.localEulerAngles.z < 90 || transform.localEulerAngles.z > 270)
+		{
+			srend.flipY = false;
+		}
+		else
+		{
+			srend.flipY = true;
+		}
 		BulletFly bullet = null;
 		if (shootNum > 1)
 		{
