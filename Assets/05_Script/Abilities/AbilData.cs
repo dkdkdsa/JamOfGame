@@ -7,13 +7,13 @@ public struct AbilData
     public string skillName;
     public string skillDesc;
     public int skillPrice;
-    public Sprite skillIcon;
+    public Color themeColor;
 
-    public AbilData(string n, string desc, int price, Sprite icon)
+    public AbilData(string n, string desc, int price, Color theme)
 	{
         skillName = n;
         skillDesc = desc;
         skillPrice = price;
-        skillIcon = icon;
+        themeColor = theme;
 	}
 }

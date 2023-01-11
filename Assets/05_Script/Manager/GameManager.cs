@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public GameObject ttrlObj;
     public CameraShakeManager shakeManager;
     public Slider bossSlider;
+    public WalletManager walletManager;
+    public DescPanelManager descPanel;
 
     public static GameManager instance;
 
@@ -27,7 +29,8 @@ public class GameManager : MonoBehaviour
         player = enemyTarget.GetComponent<PlayerCtrl>();
         waveManager = FindObjectOfType<WaveManager>();
         shakeManager = FindObjectOfType<CameraShakeManager>();
-
+        walletManager = FindObjectOfType<WalletManager>();
+        descPanel = FindObjectOfType<DescPanelManager>();
     }
 
     private void Start()

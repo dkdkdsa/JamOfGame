@@ -242,9 +242,10 @@ MonoBehaviour:
   isComputer: 1
   jumpPower: 10
   jumpCount: 2
+  particleObj: {fileID: 0}
   ignoreLayer:
     serializedVersion: 2
-    m_Bits: 1280
+    m_Bits: 18176
   OnJump:
     m_PersistentCalls:
       m_Calls: []
