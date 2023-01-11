@@ -149,7 +149,7 @@ namespace Classs
             attackCoolDown = true;
             yield return new WaitForSeconds(attackDelTime);
             action?.Invoke();
-            yield return new WaitForSeconds(9f);
+            yield return new WaitForSeconds(5f);
             attackCoolDown = false;
 
         }
@@ -159,7 +159,7 @@ namespace Classs
 
             isDie = false;
             if(GameManager.instance == null) return;
-            HP = maxHp + (Mathf.Pow(GameManager.instance.waveManager.clearCount, GameManager.instance.waveManager.clearCount) * 10);
+            HP = maxHp + (Mathf.Pow(GameManager.instance.waveManager.clearCount, 2) * 10);
             ChangeChaseState();
             if (GameManager.instance.bossSlider.gameObject.activeSelf == false && isBoss)
             {
@@ -168,6 +168,10 @@ namespace Classs
                 GameManager.instance.bossSlider.value = 1f;
 
             }
+
+            if (isBoss) HP *= 1.5f;
+
+            attackCoolDown = false;
 
         }
 
