@@ -76,3 +76,9 @@ MonoBehaviour:
   - poolName: PlayerBullet
     poolObj: {fileID: 2251290409917052910, guid: 0ffac936c3a7d0e44b2f4892941e5c65, type: 3}
     poolSize: 1000
+  - poolName: JumpFX
+    poolObj: {fileID: 1604227354005263177, guid: d6d04e4b024a73147a9b9f10d607f384, type: 3}
+    poolSize: 5
+  - poolName: BulletFX
+    poolObj: {fileID: 1967835574231978638, guid: 3e196c9e632c76841a71cb6e2dc6d010, type: 3}
+    poolSize: 1000

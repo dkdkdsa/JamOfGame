@@ -1,5 +1,7 @@
+using FD.Dev;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,6 +14,7 @@ public class PlayerCtrl : MonoBehaviour
     private float jumpPower = 5f;
 	[SerializeField]
 	private int jumpCount = 2;
+	[SerializeField] private GameObject particleObj;
 	public LayerMask ignoreLayer;
 	public UnityEvent OnJump;
 	internal Shoot shooter;
@@ -35,13 +38,29 @@ public class PlayerCtrl : MonoBehaviour
 	{
 		if(isComputer && Input.GetKeyDown(KeyCode.Space))
 		{
+			
 			Jump();
 		}
+
+		if (isGrounded)
+		{
+
+            particleObj.gameObject.SetActive(true);
+
+        }
+		else
+		{
+
+            particleObj.gameObject.SetActive(false);
+
+        }
+
 	}
 	public void Jump()
 	{
 		if(curJumpCount > 0)
 		{
+			FAED.Pop("JumpFX", transform.position, Quaternion.identity);
 			rig.velocity = Vector2.zero;
 			rig.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
 			--curJumpCount;

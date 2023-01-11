@@ -24,6 +24,7 @@ namespace Classs
         [SerializeField] protected float speed;
         [SerializeField] protected float maxHp = 50;
         [SerializeField] protected bool isBoss = false;
+        [SerializeField] protected bool isFly = false;
 
         protected bool isDie;
         protected bool attackCoolDown;
@@ -93,6 +94,7 @@ namespace Classs
                 isDie = true;
                 ChangeAIState("Die");
                 DieAnimeShow();
+                if(isFly) rigid.gravityScale = 1;
 
             }
 

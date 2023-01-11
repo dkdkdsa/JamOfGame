@@ -242,3 +242,5 @@ MonoBehaviour:
   attackDelTime: 0.3
   speed: 0.5
   maxHp: 50
+  isBoss: 0
+  isFly: 1

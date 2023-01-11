@@ -54,10 +54,9 @@ public class BulletFly : MonoBehaviour
 			{
 				e.TakeDamage(damage);
 			}
+            FAED.Pop("BulletFX", transform.position, Quaternion.identity);
 
 			isHit = true;
-
-			Debug.Log($"Returned{GetHashCode()} with useCount : {devMode} , by colliding with {collision.name}");
 			ReturnFunc();
 		}
 	}
