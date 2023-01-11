@@ -549,8 +549,8 @@ RectTransform:
   m_Children:
   - {fileID: 1873081160}
   - {fileID: 654838549}
-  - {fileID: 1454304439}
   - {fileID: 1391943064}
+  - {fileID: 1454304439}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -595,8 +595,8 @@ Camera:
   m_GameObject: {fileID: 1356907330}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -707,7 +707,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1150539983}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -726,6 +726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d1e20d090d87147ac4c7fd2134a84a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShower: 1
 --- !u!114 &1391943066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -746,7 +747,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "3600\uCD08 \uB3C4\uB9DD\uCCE4\uB2E4!"
+  m_text: "99\uC2DC\uAC04 99\uBD84 99\uCD08 \uB3C4\uB9DD\uCCE4\uB2E4!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 31435a4d4ec601343ac0f44fe4284aef, type: 2}
   m_sharedMaterial: {fileID: 1629799224528355374, guid: 31435a4d4ec601343ac0f44fe4284aef, type: 2}
@@ -898,7 +899,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1150539983}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
