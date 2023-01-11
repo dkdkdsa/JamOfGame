@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
 
     [SerializeField] private DoWaringEvent clearEvent;
+    [SerializeField] private TextMeshProUGUI text;
 
     private EnemySpawner spawner;
     private MapObjectSummon mapSummoner;
@@ -24,6 +26,8 @@ public class WaveManager : MonoBehaviour
     {
 
         //이쪽에 튜토리얼
+
+        text.text = $"파도 : {clearCount}";
 
     }
 
@@ -46,6 +50,10 @@ public class WaveManager : MonoBehaviour
             GameManager.instance.shop.OpenShop();
 
         });
+
+        clearCount++;
+
+        text.text = $"파도 : {clearCount}";
 
         mapSummoner.StopSpawn();
 
