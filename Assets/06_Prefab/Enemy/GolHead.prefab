@@ -244,3 +244,4 @@ MonoBehaviour:
   maxHp: 50
   isBoss: 0
   isFly: 1
+  money: 90

@@ -5048,3 +5048,5 @@ MonoBehaviour:
   speed: 0.5
   maxHp: 50
   isBoss: 0
+  isFly: 0
+  money: 80

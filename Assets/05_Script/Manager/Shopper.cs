@@ -9,12 +9,10 @@ public class Shopper : MonoBehaviour
     public List<AbilityBase> abilities;
     List<AbilityBase> children = new List<AbilityBase>();
 	GridLayoutGroup seller;
-	RectTransform sellerT;
 
 	private void Awake()
 	{
 		seller= GetComponentInChildren<GridLayoutGroup>();
-		sellerT = seller.GetComponent<RectTransform>();
 		for (int i = 0; i < abilities.Count; i++)
 		{
 			AbilityBase abil = Instantiate(abilities[i], seller.transform);
@@ -28,10 +26,6 @@ public class Shopper : MonoBehaviour
 	{
 		gameObject.SetActive(true);
 		List<AbilityBase> stock = new List<AbilityBase>( RandomPicker(children, 3));
-		foreach (var item in stock)
-		{
-			Debug.Log(item.data.skillName);
-		}
 		for (int i = 0; i < children.Count; i++)
 		{
 				if (Contain(stock,children[i]))

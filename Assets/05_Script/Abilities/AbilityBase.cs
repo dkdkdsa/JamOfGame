@@ -13,7 +13,7 @@ public class AbilityBase : MonoBehaviour
 	[SerializeField]
 	private int skillPrice;
 	[SerializeField]
-	private Sprite skillIcon;
+	private Color themeColor;
 	public AbilData data;
 	protected Skillform form;
 	private void Awake()
@@ -37,7 +37,7 @@ public class AbilityBase : MonoBehaviour
 	}
 	protected virtual void Init()
 	{
-		data = new AbilData(skillName, skillDesc, skillPrice, skillIcon);
+		data = new AbilData(skillName, skillDesc, skillPrice, themeColor);
 	}
 	public void UseSkill()
 	{

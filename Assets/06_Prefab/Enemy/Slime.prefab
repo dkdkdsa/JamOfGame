@@ -244,6 +244,8 @@ MonoBehaviour:
   speed: 0.5
   maxHp: 50
   isBoss: 0
+  isFly: 0
+  money: 75
 --- !u!1 &7570286867665113861
 GameObject:
   m_ObjectHideFlags: 0

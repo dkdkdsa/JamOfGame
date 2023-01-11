@@ -25,6 +25,7 @@ namespace Classs
         [SerializeField] protected float maxHp = 50;
         [SerializeField] protected bool isBoss = false;
         [SerializeField] protected bool isFly = false;
+        [SerializeField] protected int money = 70;
 
         protected bool isDie;
         protected bool attackCoolDown;
@@ -95,7 +96,8 @@ namespace Classs
                 ChangeAIState("Die");
                 DieAnimeShow();
                 if(isFly) rigid.gravityScale = 1;
-
+                Debug.Log(money);
+                GameManager.instance.walletManager.AddMoney(money);
             }
 
         }
