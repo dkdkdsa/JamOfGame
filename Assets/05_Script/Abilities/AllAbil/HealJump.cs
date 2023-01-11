@@ -11,7 +11,7 @@ public class HealJump : AbilityBase
 	}
 	protected override void Activity()
 	{
-		GameManager.instance.player.hp.HealDamage(12);
+		GameManager.instance.player.hp.HealDamage(6);
 	}
 	protected override bool Condition()
 	{
