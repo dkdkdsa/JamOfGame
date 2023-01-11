@@ -43,10 +43,12 @@ public class Shopper : MonoBehaviour
 					children[i].gameObject.SetActive(false);
 				}
 		}
+		Time.timeScale = 0;
 	}
 	public void CloseShop()
 	{
 		gameObject.SetActive(false);
+		Time.timeScale = 1;
 	}
 
 	bool Contain(List<AbilityBase> list, AbilityBase datum)
