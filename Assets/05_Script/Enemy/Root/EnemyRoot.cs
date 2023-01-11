@@ -174,6 +174,8 @@ namespace Classs
         private void OnDisable()
         {
 
+            if (GameManager.instance == null) return;
+
             if (isBoss)
             {
 
