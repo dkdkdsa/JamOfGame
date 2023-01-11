@@ -394,6 +394,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6322702824895308378, guid: c1dc07273be273f479047709bafaece1, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6322702824895308378, guid: c1dc07273be273f479047709bafaece1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6322702824895308378, guid: c1dc07273be273f479047709bafaece1, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6322702824895308378, guid: c1dc07273be273f479047709bafaece1, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6322702824895308378, guid: c1dc07273be273f479047709bafaece1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 85.42859
+      objectReference: {fileID: 0}
+    - target: {fileID: 6322702824895308378, guid: c1dc07273be273f479047709bafaece1, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 85.42859
+      objectReference: {fileID: 0}
+    - target: {fileID: 6322702824895308378, guid: c1dc07273be273f479047709bafaece1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -42.70999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6322702824895308378, guid: c1dc07273be273f479047709bafaece1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -42.710007
+      objectReference: {fileID: 0}
     - target: {fileID: 6322702824895308379, guid: c1dc07273be273f479047709bafaece1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -11767,6 +11799,18 @@ PrefabInstance:
       propertyPath: slider
       value: 
       objectReference: {fileID: 702217379}
+    - target: {fileID: 7535184224147545578, guid: 6fbd7e3b7df96f047b9378881b1c42b0, type: 3}
+      propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7535184224147545578, guid: 6fbd7e3b7df96f047b9378881b1c42b0, type: 3}
+      propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7535184224147545578, guid: 6fbd7e3b7df96f047b9378881b1c42b0, type: 3}
+      propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fbd7e3b7df96f047b9378881b1c42b0, type: 3}
 --- !u!114 &753770949 stripped

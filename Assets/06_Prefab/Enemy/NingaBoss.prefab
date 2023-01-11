@@ -4983,7 +4983,7 @@ MonoBehaviour:
   maxHp: 500
   isBoss: 1
   isFly: 0
-  money: 1000
+  money: 3000
 --- !u!61 &2356838829836756904
 BoxCollider2D:
   m_ObjectHideFlags: 0
