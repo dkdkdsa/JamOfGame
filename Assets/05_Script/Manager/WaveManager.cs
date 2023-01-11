@@ -1,3 +1,4 @@
+using FD.Dev;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -62,7 +63,9 @@ public class WaveManager : MonoBehaviour
     IEnumerator WaveCo()
     {
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(30f);
+
+        FAED.PlaySound("BossWering");
 
         spawner.BossSummon();
 

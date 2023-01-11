@@ -119,11 +119,13 @@ public class Shoot : MonoBehaviour
 				bullet.ShootStart(speed, damage, scale);
 			}
             GameManager.instance.shakeManager.Shake(3, 3, 0.05f);
+            FAED.PlaySound("ShotSound");
 
         }
 		else
 		{
 
+			FAED.PlaySound("ShotSound");
 			GameManager.instance.shakeManager.Shake(3, 3, 0.05f);
             FAED.Pop("BulletFX", shootPos.position, Quaternion.identity);
             bullet = FAED.Pop("PlayerBullet", shootPos.position, transform.rotation).GetComponent<BulletFly>();

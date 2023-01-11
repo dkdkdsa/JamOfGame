@@ -12,4 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 249cfd89037d05140bc34bd21427868c, type: 3}
   m_Name: SoundData
   m_EditorClassIdentifier: 
-  clipList: []
+  chCount: 1000
+  clipList:
+  - clipName: IntroBGM
+    clip: {fileID: 8300000, guid: a740acdb355edc9449011d4bab85fa3b, type: 3}
+    volume: 1
+    pitch: 1
+    playOnAwake: 0
+    loop: 1
+  - clipName: MainBGM
+    clip: {fileID: 8300000, guid: c6fa7be7391e3514b8cccf1b97502855, type: 3}
+    volume: 1
+    pitch: 1
+    playOnAwake: 0
+    loop: 1
+  - clipName: ShotSound
+    clip: {fileID: 8300000, guid: ca193cb7ad0c20d4c963a11675390dbe, type: 3}
+    volume: 0.6
+    pitch: 1
+    playOnAwake: 0
+    loop: 0
+  - clipName: BossWering
+    clip: {fileID: 8300000, guid: cb8635e483c619641829e687908b81a2, type: 3}
+    volume: 0.5
+    pitch: 1
+    playOnAwake: 0
+    loop: 0
