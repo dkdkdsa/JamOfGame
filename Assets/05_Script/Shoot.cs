@@ -105,15 +105,20 @@ public class Shoot : MonoBehaviour
 		{
 			for (int i = 0; i < shootNum; i++)
 			{
-				bullet = FAED.Pop("PlayerBullet", shootPos.position, Quaternion.Euler(transform.eulerAngles + new Vector3(0, 0, Random.Range(-angleJitter, angleJitter)))).GetComponent<BulletFly>();
+                FAED.Pop("BulletFX", shootPos.position, Quaternion.identity);
+                bullet = FAED.Pop("PlayerBullet", shootPos.position, Quaternion.Euler(transform.eulerAngles + new Vector3(0, 0, Random.Range(-angleJitter, angleJitter)))).GetComponent<BulletFly>();
 				tester.Add(bullet);
 				bullet.ShootStart(speed, damage, scale);
 			}
+            GameManager.instance.shakeManager.Shake(3, 3, 0.05f);
 
-		}
+        }
 		else
 		{
-			bullet = FAED.Pop("PlayerBullet", shootPos.position, transform.rotation).GetComponent<BulletFly>();
+
+			GameManager.instance.shakeManager.Shake(3, 3, 0.05f);
+            FAED.Pop("BulletFX", shootPos.position, Quaternion.identity);
+            bullet = FAED.Pop("PlayerBullet", shootPos.position, transform.rotation).GetComponent<BulletFly>();
 			bullet.ShootStart(speed, damage, scale);
 		}
 		

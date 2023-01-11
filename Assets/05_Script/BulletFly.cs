@@ -36,7 +36,8 @@ public class BulletFly : MonoBehaviour
 			{
 				e.TakeDamage(damage);
 			}
-			Debug.Log(collision.name);
+            FAED.Pop("BulletFX", transform.position, Quaternion.identity);
+            Debug.Log(collision.name);
 			ReturnFunc();
 
 		}

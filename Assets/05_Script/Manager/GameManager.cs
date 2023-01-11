@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public PlayerCtrl player;
     public SaveData saveData;
     public GameObject ttrlObj;
+    public CameraShakeManager shakeManager;
 
     public static GameManager instance;
 
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
         saveData = FAED.Load<SaveData>(Application.dataPath, "Data");
         player = enemyTarget.GetComponent<PlayerCtrl>();
         waveManager = FindObjectOfType<WaveManager>();
+        shakeManager = FindObjectOfType<CameraShakeManager>();
 
     }
 
