@@ -140,14 +140,14 @@ namespace FD.Program.Managers
             soundList = list;
             this.parent = parent;
 
-            for(int i = 0; i < soundList.clipList.Count; i++)
+            for(int i = 0; i < soundList.chCount; i++)
             {
 
                 GameObject go = new GameObject();
                 go.gameObject.name = "@FAED_Ch";
                 go.AddComponent<AudioSource>().playOnAwake = false;
                 go.GetComponent<AudioSource>().loop = false;
-                go.AddComponent<FAED_ManageingSource>().Setting(this, go.GetComponent<AudioSource>(), soundList.clipList[i].clipName);
+                go.AddComponent<FAED_ManageingSource>().Setting(this, go.GetComponent<AudioSource>(), "");
                 ch.Push(go.GetComponent<FAED_ManageingSource>());
                 go.transform.SetParent(parent);
 
@@ -205,6 +205,7 @@ namespace FD.Program.Managers
             audio.clip = source.clip;
             audio.volume = source.volume;
             audio.pitch = source.pitch;
+            go.clipName = name;
 
             if (source.loop == true) audio.loop = true;
             else audio.loop = false;

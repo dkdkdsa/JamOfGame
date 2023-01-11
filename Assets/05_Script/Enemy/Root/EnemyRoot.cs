@@ -49,6 +49,7 @@ namespace Classs
         protected virtual void Start()
         {
 
+
             target = GameManager.instance.enemyTarget;
 
         }
@@ -108,7 +109,6 @@ namespace Classs
                 isDie = true;
                 ChangeAIState("Die");
                 DieAnimeShow();
-                if(isFly) rigid.gravityScale = 1;
                 Debug.Log(money);
                 GameManager.instance.walletManager.AddMoney(money);
             }

@@ -32,7 +32,7 @@ public class EnemyBullet : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
 
-            GameManager.instance.player.hp.GetDamage(10);
+            GameManager.instance.player.hp.GetDamage(5);
             FAED.Push(gameObject);
 
         }

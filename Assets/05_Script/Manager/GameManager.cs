@@ -36,7 +36,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
 
-
+        FAED.StopSound("IntroBGM");
+        FAED.PlaySound("MainBGM");
 
         if (saveData.isFirst == false)
         {
