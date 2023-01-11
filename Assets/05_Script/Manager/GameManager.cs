@@ -2,6 +2,7 @@ using FD.Dev;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
     public SaveData saveData;
     public GameObject ttrlObj;
     public CameraShakeManager shakeManager;
+    public Slider bossSlider;
     public WalletManager walletManager;
     public DescPanelManager descPanel;
 
@@ -40,6 +42,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             ttrlObj.gameObject.SetActive(true);
             saveData.isFirst = true;
+            FAED.Save(saveData, Application.dataPath, "Data");
 
         }
         else
@@ -58,11 +61,5 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void OnDisable()
-    {
-
-        FAED.Save(saveData, Application.dataPath, "Data");
-
-    }
 
 }

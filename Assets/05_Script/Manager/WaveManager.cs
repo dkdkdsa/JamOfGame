@@ -54,7 +54,7 @@ public class WaveManager : MonoBehaviour
     IEnumerator WaveCo()
     {
 
-        yield return new WaitForSeconds(100f);
+        yield return new WaitForSeconds(3f);
 
         spawner.BossSummon();
 

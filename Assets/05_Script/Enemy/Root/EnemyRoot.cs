@@ -6,6 +6,7 @@ using FD.AI;
 using System;
 using UnityEditor.SearchService;
 using System.Linq;
+using DG.Tweening;
 
 namespace Classs
 {
@@ -89,6 +90,18 @@ namespace Classs
             if (isDie) return;
 
             HP -= damage;
+
+            if (isBoss)
+            {
+
+
+                GameManager.instance.bossSlider.GetComponent<BarShackEvent>().ShackBar();
+
+                DOTween.To(x => GameManager.instance.bossSlider.value = x, GameManager.instance.bossSlider.value, HP / 
+                    (maxHp + (Mathf.Pow(GameManager.instance.waveManager.clearCount, GameManager.instance.waveManager.clearCount) * 10)), 0.3f);
+
+            }
+
             if(HP <= 0)
             {
 
@@ -148,6 +161,26 @@ namespace Classs
             if(GameManager.instance == null) return;
             HP = maxHp + (Mathf.Pow(GameManager.instance.waveManager.clearCount, GameManager.instance.waveManager.clearCount) * 10);
             ChangeChaseState();
+            if (GameManager.instance.bossSlider.gameObject.activeSelf == false && isBoss)
+            {
+
+                GameManager.instance.bossSlider.gameObject.SetActive(true);
+                GameManager.instance.bossSlider.value = 1f;
+
+            }
+
+        }
+
+        private void OnDisable()
+        {
+
+            if (isBoss)
+            {
+
+                GameManager.instance.bossSlider.gameObject.SetActive(false);
+                GameManager.instance.bossSlider.value = 1f;
+
+            }
 
         }
 

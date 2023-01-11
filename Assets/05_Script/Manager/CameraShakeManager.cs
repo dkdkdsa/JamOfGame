@@ -22,6 +22,8 @@ public class CameraShakeManager : MonoBehaviour
     public void Shake(float value, float num, float duration)
     {
 
+        if (cbmcp.m_AmplitudeGain >= 6 && cbmcp.m_FrequencyGain >= 6) return;
+
         FAED.InvokeDelay(() =>
         {
 

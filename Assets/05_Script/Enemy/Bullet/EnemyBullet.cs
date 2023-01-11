@@ -24,8 +24,6 @@ public class EnemyBullet : MonoBehaviour
         dir.Normalize();
         rb.velocity = dir * bulletSpeed;
 
-        FAED.InvokeDelay(() => FAED.Push(gameObject), 5f);
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -35,6 +33,13 @@ public class EnemyBullet : MonoBehaviour
         {
 
             GameManager.instance.player.hp.GetDamage(10);
+            FAED.Push(gameObject);
+
+        }
+
+        if (collision.transform.CompareTag("Wall"))
+        {
+
             FAED.Push(gameObject);
 
         }
