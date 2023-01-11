@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
 
+
+
         if (saveData.isFirst == false)
         {
 
@@ -58,6 +60,13 @@ public class GameManager : MonoBehaviour
     {
 
         Time.timeScale = 1;
+
+    }
+
+    public void SetTimeScale()
+    {
+
+        Time.timeScale = 0;
 
     }
 
