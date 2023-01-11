@@ -5077,7 +5077,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDelTime: 0.3
   speed: 0
-  maxHp: 50
+  maxHp: 500
   isBoss: 1
   isFly: 0
   money: 10000
