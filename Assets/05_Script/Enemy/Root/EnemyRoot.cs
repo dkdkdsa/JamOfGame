@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using FD.AI;
 using System;
-using UnityEditor.SearchService;
 using System.Linq;
 using DG.Tweening;
 
@@ -36,6 +35,8 @@ namespace Classs
         protected Animator animator;
         protected Transform target;
         protected float HP = 50;
+        protected float currentMaxHp;
+        private bool isTwincle;
 
         protected virtual void Awake()
         {
@@ -50,7 +51,7 @@ namespace Classs
         {
 
 
-            target = GameManager.instance.enemyTarget;
+            
 
         }
 
@@ -90,6 +91,13 @@ namespace Classs
 
             if (isDie) return;
 
+            if (!isTwincle)
+            {
+
+                StartCoroutine(TwincleCo());
+
+            }
+
             HP -= damage;
 
             if (isBoss)
@@ -99,7 +107,7 @@ namespace Classs
                 GameManager.instance.bossSlider.GetComponent<BarShackEvent>().ShackBar();
 
                 DOTween.To(x => GameManager.instance.bossSlider.value = x, GameManager.instance.bossSlider.value, HP / 
-                    (maxHp + (Mathf.Pow(GameManager.instance.waveManager.clearCount, GameManager.instance.waveManager.clearCount) * 10)), 0.3f);
+                    currentMaxHp, 0.3f);
 
             }
 
@@ -159,6 +167,7 @@ namespace Classs
 
             isDie = false;
             if(GameManager.instance == null) return;
+            target = GameManager.instance.enemyTarget;
             HP = maxHp + (Mathf.Pow(GameManager.instance.waveManager.clearCount, 2) * 10);
             ChangeChaseState();
             if (GameManager.instance.bossSlider.gameObject.activeSelf == false && isBoss)
@@ -169,7 +178,11 @@ namespace Classs
 
             }
 
+            GetComponent<SpriteRenderer>().color = Color.white;
+
             if (isBoss) HP *= 1.5f;
+
+            currentMaxHp = HP;
 
             attackCoolDown = false;
 
@@ -183,6 +196,7 @@ namespace Classs
             if (isBoss)
             {
 
+                if (GameManager.instance.bossSlider == null) return;
                 GameManager.instance.bossSlider.gameObject.SetActive(false);
                 GameManager.instance.bossSlider.value = 1f;
 
@@ -200,6 +214,20 @@ namespace Classs
                 FAED.Push(gameObject);
 
             }
+
+        }
+
+        IEnumerator TwincleCo()
+        {
+
+            isTwincle = true;
+            yield return null;
+            var r = GetComponent<SpriteRenderer>();
+
+            r.color = Color.black;
+            yield return new WaitForSeconds(0.15f);
+            r.color = Color.white;
+            isTwincle = false;
 
         }
 

@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public Slider bossSlider;
     public WalletManager walletManager;
     public DescPanelManager descPanel;
+    public GameObject exitObj;
+    public GameObject waveObj;
 
     public static GameManager instance;
 
@@ -25,7 +27,7 @@ public class GameManager : MonoBehaviour
     {
         
         instance = this;
-        saveData = FAED.Load<SaveData>(Application.dataPath, "Data");
+        //saveData = FAED.Load<SaveData>(Application.dataPath, "Data");
         player = enemyTarget.GetComponent<PlayerCtrl>();
         waveManager = FindObjectOfType<WaveManager>();
         shakeManager = FindObjectOfType<CameraShakeManager>();
@@ -39,18 +41,22 @@ public class GameManager : MonoBehaviour
         FAED.StopSound("IntroBGM");
         FAED.PlaySound("MainBGM");
 
-        if (saveData.isFirst == false)
+        if (PlayerPrefs.GetInt("Start") != 1)
         {
 
             Time.timeScale = 0;
             ttrlObj.gameObject.SetActive(true);
+            waveObj.SetActive(false);
+            exitObj.SetActive(false);
             saveData.isFirst = true;
-            FAED.Save(saveData, Application.dataPath, "Data");
+            PlayerPrefs.SetInt("Start", 1);
 
         }
         else
         {
 
+            waveObj.SetActive(true);
+            exitObj.SetActive(true);
             shop.OpenShop();
 
         }

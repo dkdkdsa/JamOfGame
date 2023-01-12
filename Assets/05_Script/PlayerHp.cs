@@ -1,4 +1,5 @@
 using DG.Tweening;
+using FD.Dev;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,6 +37,8 @@ public class PlayerHp : MonoBehaviour
 	public void GetDamage(float dam)
 	{
 		currentHp -= dam;
+
+		FAED.PlaySound("E");
 
 		DOTween.To(x => slider.value = x, slider.value, currentHp / MaxHp, 0.3f).Play();
 		OnDamaged.Invoke(currentHp);

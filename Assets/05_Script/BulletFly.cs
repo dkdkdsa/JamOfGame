@@ -5,7 +5,7 @@ using FD.Dev;
 
 public class BulletFly : MonoBehaviour
 {
-	float damage = 10;
+	float damage = 20;
 	Vector3 initSize;
 	Rigidbody2D rig;
 	Collider2D col;

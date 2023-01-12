@@ -16,7 +16,7 @@ MonoBehaviour:
   clipList:
   - clipName: IntroBGM
     clip: {fileID: 8300000, guid: a740acdb355edc9449011d4bab85fa3b, type: 3}
-    volume: 1
+    volume: 0.3
     pitch: 1
     playOnAwake: 0
     loop: 1
@@ -28,13 +28,19 @@ MonoBehaviour:
     loop: 1
   - clipName: ShotSound
     clip: {fileID: 8300000, guid: ca193cb7ad0c20d4c963a11675390dbe, type: 3}
-    volume: 0.6
+    volume: 0.3
     pitch: 1
     playOnAwake: 0
     loop: 0
   - clipName: BossWering
     clip: {fileID: 8300000, guid: cb8635e483c619641829e687908b81a2, type: 3}
     volume: 0.5
+    pitch: 1
+    playOnAwake: 0
+    loop: 0
+  - clipName: E
+    clip: {fileID: 8300000, guid: 8091cbfb7103a3444a6bcd53529b1a7a, type: 3}
+    volume: 1
     pitch: 1
     playOnAwake: 0
     loop: 0

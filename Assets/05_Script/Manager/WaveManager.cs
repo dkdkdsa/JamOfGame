@@ -18,6 +18,7 @@ public class WaveManager : MonoBehaviour
     private void Awake()
     {
         
+        text.text = $"파도 : {clearCount}";
         spawner = FindObjectOfType<EnemySpawner>();
         mapSummoner = FindObjectOfType<MapObjectSummon>();
 
@@ -28,7 +29,6 @@ public class WaveManager : MonoBehaviour
 
         //이쪽에 튜토리얼
 
-        text.text = $"파도 : {clearCount}";
 
     }
 

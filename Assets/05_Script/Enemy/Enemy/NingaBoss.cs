@@ -30,10 +30,10 @@ public class NingaBoss : EnemyRoot
 
             float r = 60;
 
-            for(int i = 0; i < 10; i++)
+            for(int i = 0; i < 55; i++)
             {
 
-                r -= 10;
+                r -= 20;
                 FAED.Pop("SuReGum", transform.position, Quaternion.Euler(new Vector3(0, 0, r))).GetComponent<SuReGum>().SetBullet();
 
             }
@@ -43,10 +43,10 @@ public class NingaBoss : EnemyRoot
 
                 float r = 60;
 
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 5; i++)
                 {
 
-                    r -= 10;
+                    r -= 20;
                     FAED.Pop("SuReGum", transform.position, Quaternion.Euler(new Vector3(0, 0, r))).GetComponent<SuReGum>().SetBullet();
 
                 }
